@@ -137,7 +137,8 @@ export default async function CategoryPage({
       <div className="container mx-auto p-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           
-          <aside className="lg:col-span-1">
+          {/* Sidebar: Ahora oculto en móvil (hidden) y visible en escritorio (lg:block) */}
+          <aside className="hidden lg:block lg:col-span-1">
             <Sidebar />
           </aside>
 
@@ -190,7 +191,6 @@ export default async function CategoryPage({
               </div>
             )}
           </main>
-
         </div>
       </div>
     </div>
