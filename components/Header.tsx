@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react'; // ← NUEVO
-import { useRouter } from 'next/navigation'; // ← NUEVO
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { 
@@ -13,13 +13,11 @@ import { CategoryBar } from './CategoryBar';
 import { CartDrawer } from './CartDrawer';
 import { useCart } from '@/lib/CartContext';
 
-
 export function Header() {
   const { totalItems, openCart } = useCart();
-  const [searchTerm, setSearchTerm] = useState(''); // ← NUEVO
-  const router = useRouter(); // ← NUEVO
+  const [searchTerm, setSearchTerm] = useState('');
+  const router = useRouter();
 
-  // ← NUEVO: Función para manejar la búsqueda
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchTerm.trim()) {
@@ -32,7 +30,7 @@ export function Header() {
       <header className="shadow-md">
         {/* SECCIÓN PRINCIPAL (Blanca) */}
         <div className="bg-white py-4 px-6">
-          <div className="container mx-auto flex justify-between items-center">
+          <div className="container mx-auto flex flex-wrap justify-between items-center">
             {/* 1. Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image 
@@ -45,20 +43,20 @@ export function Header() {
             </Link>
 
             {/* 2. Barra de Búsqueda - UX Mejorado para Móvil */}
-<div className="order-3 mt-4 w-full md:order-none md:mt-0 md:flex-grow md:max-w-xl md:mx-4">
-  <form onSubmit={handleSearch} className="relative w-full">
-    <input 
-      type="text" 
-      value={searchTerm}
-      onChange={(e) => setSearchTerm(e.target.value)}
-      placeholder="Buscar producto..." 
-      className="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-light text-sm"
-    />
-    <button type="submit" className="absolute right-0 top-0 mt-2 mr-3 text-gray-500">
-      <MagnifyingGlassIcon className="h-6 w-6" />
-    </button>
-  </form>
-</div>
+            <div className="order-3 mt-4 w-full md:order-none md:mt-0 md:flex-grow md:max-w-xl md:mx-4">
+              <form onSubmit={handleSearch} className="relative w-full">
+                <input 
+                  type="text" 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Buscar producto..." 
+                  className="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-light text-sm"
+                />
+                <button type="submit" className="absolute right-0 top-0 mt-2 mr-3 text-gray-500">
+                  <MagnifyingGlassIcon className="h-6 w-6" />
+                </button>
+              </form>
+            </div>
 
             {/* 3. Íconos de Usuario y Carrito */}
             <div className="flex items-center space-x-4">
