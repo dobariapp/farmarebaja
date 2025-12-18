@@ -44,19 +44,21 @@ export function Header() {
               />
             </Link>
 
-            {/* 2. Barra de Búsqueda - AHORA VISIBLE EN MÓVIL */}
-            <form onSubmit={handleSearch} className="flex-grow max-w-xl mx-2 md:mx-4 relative flex">
-              <input 
-                type="text" 
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Buscar producto..." 
-                className="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-light"
-              />
-              <button type="submit" className="absolute right-0 top-0 mt-2 mr-3 text-gray-500">
-                <MagnifyingGlassIcon className="h-6 w-6" />
-              </button>
-            </form>
+            {/* 2. Barra de Búsqueda - UX Mejorado para Móvil */}
+<div className="order-3 mt-4 w-full md:order-none md:mt-0 md:flex-grow md:max-w-xl md:mx-4">
+  <form onSubmit={handleSearch} className="relative w-full">
+    <input 
+      type="text" 
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      placeholder="Buscar producto..." 
+      className="w-full py-2 px-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-brand-light text-sm"
+    />
+    <button type="submit" className="absolute right-0 top-0 mt-2 mr-3 text-gray-500">
+      <MagnifyingGlassIcon className="h-6 w-6" />
+    </button>
+  </form>
+</div>
 
             {/* 3. Íconos de Usuario y Carrito */}
             <div className="flex items-center space-x-4">
