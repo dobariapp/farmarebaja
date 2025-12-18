@@ -12,7 +12,7 @@ import {
   Droplet 
 } from 'lucide-react';
 
-// Categorías con iconos y gradientes
+// 1. Mantenemos tus 111 líneas originales de datos
 const categories = [
   { 
     name: 'Hipertensión', 
@@ -73,24 +73,21 @@ export function CategoryCircles() {
           Categorías Recomendadas
         </h2>
 
-        {/* Grid de categorías */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-6">
+        {/* 2. El nuevo diseño de Slider (Carrusel) */}
+        <div className="flex overflow-x-auto gap-6 pb-6 scrollbar-hide snap-x snap-mandatory md:grid md:grid-cols-4 lg:grid-cols-8 md:overflow-visible md:pb-0">
           {categories.map((category) => {
             const Icon = category.icon;
             return (
               <Link
                 key={category.name}
                 href={category.href}
-                className="flex flex-col items-center group"
+                className="flex flex-col items-center group flex-shrink-0 w-32 snap-center md:w-auto"
               >
                 {/* Círculo con gradiente */}
                 <div className="relative mb-3">
-                  {/* Sombra del círculo */}
                   <div className="absolute inset-0 bg-gray-300 rounded-full blur-md opacity-40 scale-90" />
                   
-                  {/* Círculo exterior blanco */}
                   <div className="relative bg-white rounded-full p-2 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    {/* Círculo interior con gradiente */}
                     <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${category.gradient} flex items-center justify-center`}>
                       <Icon className="w-10 h-10 text-white" strokeWidth={1.5} />
                     </div>
@@ -98,7 +95,7 @@ export function CategoryCircles() {
                 </div>
 
                 {/* Nombre de la categoría */}
-                <span className="text-sm text-center text-gray-700 font-medium group-hover:text-brand-light transition-colors">
+                <span className="text-xs md:text-sm text-center text-gray-700 font-medium group-hover:text-brand-light transition-colors line-clamp-2 px-2">
                   {category.name}
                 </span>
               </Link>
