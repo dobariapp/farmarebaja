@@ -44,8 +44,8 @@ export function Header() {
               />
             </Link>
 
-            {/* 2. Barra de Búsqueda - MODIFICADA */}
-            <form onSubmit={handleSearch} className="flex-grow max-w-xl mx-4 relative hidden md:flex">
+            {/* 2. Barra de Búsqueda - AHORA VISIBLE EN MÓVIL */}
+            <form onSubmit={handleSearch} className="flex-grow max-w-xl mx-2 md:mx-4 relative flex">
               <input 
                 type="text" 
                 value={searchTerm}
